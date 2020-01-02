@@ -1,0 +1,8 @@
+version: '3'
+services:
+  python3-opencv:
+    build: .
+    container_name: python3-opencv-matplotlib
+    volumes:
+      - ./src:/src
+    tty: true

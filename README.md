@@ -9,7 +9,9 @@
 4. $cd src/face
 5. $python python face.py family.jpg
 6. 顔の座標がコンソールに表示される
-7. family_faceフォルダが作成されて、トリミングされた顔画像ファイルが格納されてる
+7. family_faceフォルダが作成される
+  - トリミングして分割した顔画像ファイル
+  - 元の画像に顔の部分だけ白枠をつけた画像ファイル
 
 # 参考
 http://famirror.hateblo.jp/entry/2015/12/19/180000

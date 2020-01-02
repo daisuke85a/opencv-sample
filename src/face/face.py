@@ -33,3 +33,23 @@ facerect = cascade.detectMultiScale(image_gray, scaleFactor=1.2, minNeighbors=2,
 
 print("face rectangle")
 print(facerect)
+
+#ディレクトリの作成
+if len(facerect) > 0:
+	path = os.path.splitext(image_path)
+	dir_path = path[0] + '_face'
+	if os.path.isdir(dir_path):
+		shutil.rmtree(dir_path)
+	os.mkdir(dir_path)
+
+i = 0
+for rect in facerect:
+	#顔だけ切り出して保存
+	x = rect[0]
+	y = rect[1]
+	width = rect[2]
+	height = rect[3]
+	dst = image[y:y+height, x:x+width]
+	new_image_path = dir_path + '/' + str(i) + path[1]
+	cv2.imwrite(new_image_path, dst)
+	i += 1

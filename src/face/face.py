@@ -53,3 +53,13 @@ for rect in facerect:
 	new_image_path = dir_path + '/' + str(i) + path[1]
 	cv2.imwrite(new_image_path, dst)
 	i += 1
+
+if len(facerect) > 0:
+	color = (255, 255, 255) #白
+	for rect in facerect:
+		#検出した顔を囲む矩形の作成
+		cv2.rectangle(image, tuple(rect[0:2]),tuple(rect[0:2] + rect[2:4]), color, thickness=2)
+
+	#認識結果の保存
+	new_image_path = dir_path + '/' +'all' + path[1]
+	cv2.imwrite(new_image_path, image)
